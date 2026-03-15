@@ -1,5 +1,5 @@
-#!/bin/bash
 @echo off
 echo Starting build process...
-timeout /t 2 >nul
+ping 127.0.0.1 -n 3 > nul
 echo Build completed successfully.
+exit /b 0
