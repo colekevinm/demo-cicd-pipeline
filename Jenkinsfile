@@ -27,10 +27,11 @@ pipeline {
         stage('Security Scan') {
             steps {
                 script {
-            def scannerHome = tool 'SonarScanner'
-            withSonarQubeEnv('SonarQube') {
-                bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
-            }
+                    def scannerHome = tool 'SonarScanner'
+                    withSonarQubeEnv('SonarQube') {
+                        bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
+                    }
+                }
             }
         }
 
