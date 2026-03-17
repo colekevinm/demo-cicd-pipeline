@@ -26,8 +26,11 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                echo 'Running security scan script...'
-                bat 'security-scan.bat'
+                script {
+            def scannerHome = tool 'SonarScanner'
+            withSonarQubeEnv('SonarQube') {
+                bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
+            }
             }
         }
 
